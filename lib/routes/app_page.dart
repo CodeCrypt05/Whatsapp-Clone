@@ -3,6 +3,8 @@ import 'package:whatsapp_clone/pages/home/home_binding.dart';
 import 'package:whatsapp_clone/pages/home/home_screen.dart';
 import 'package:whatsapp_clone/pages/onboarding/onboarding_binding.dart';
 import 'package:whatsapp_clone/pages/onboarding/onboarding_screen.dart';
+import 'package:whatsapp_clone/pages/phone_number/phone_number_binding.dart';
+import 'package:whatsapp_clone/pages/phone_number/phone_number_screen.dart';
 import 'package:whatsapp_clone/pages/splash/splash_binding.dart';
 import 'package:whatsapp_clone/pages/splash/splash_screen.dart';
 import 'package:whatsapp_clone/routes/app_routes.dart';
@@ -23,6 +25,11 @@ class AppPages {
       name: AppRoutes.onboardingScreen,
       page: () => OnboardingScreen(),
       binding: OnboardingScreenBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.phoneNumberScreen,
+      page: () => PhoneNumberScreen(),
+      binding: PhoneNumberScreenBinding(),
     ),
   ];
 }

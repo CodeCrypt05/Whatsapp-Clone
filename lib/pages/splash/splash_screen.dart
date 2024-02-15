@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:whatsapp_clone/const/const.dart';
-import 'package:whatsapp_clone/theme/colors.dart';
-import 'package:whatsapp_clone/theme/text_style.dart';
+import 'package:whatsapp_clone/utils/constants/colors.dart';
+
+import 'package:whatsapp_clone/utils/theme/text_style.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -13,7 +14,7 @@ class SplashScreen extends StatelessWidget {
     var brightness = MediaQuery.of(context).platformBrightness;
     final height = MediaQuery.of(context).size.height;
 
-     bool isDarkMode = brightness == Brightness.dark;
+    bool isDarkMode = brightness == Brightness.dark;
     print(isDarkMode);
 
     return Scaffold(
@@ -28,7 +29,7 @@ class SplashScreen extends StatelessWidget {
                 Const.whatsappLogo,
                 fit: BoxFit.cover,
                 height: 76.h,
-                color: isDarkMode ? kColorWhite : kColorPrimary,
+                color: isDarkMode ? TColors.white : TColors.primary,
               ),
             ),
             Expanded(
@@ -42,7 +43,7 @@ class SplashScreen extends StatelessWidget {
                       style: kTextStyleHelveticaRegular.copyWith(
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
-                          color: kColorGrey),
+                          color: Colors.grey),
                     ),
                     SizedBox(height: 4.h),
                     Row(
@@ -51,14 +52,16 @@ class SplashScreen extends StatelessWidget {
                         SvgPicture.asset(Const.metaLogo,
                             fit: BoxFit.cover,
                             height: 16.h,
-                            color: isDarkMode ? kColorWhite : kColorPrimary),
+                            color:
+                                isDarkMode ? TColors.white : TColors.primary),
                         SizedBox(width: 4.h),
                         Text(
                           "Meta",
                           style: kTextStyleHelveticaRegular.copyWith(
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w800,
-                              color: isDarkMode ? kColorWhite : kColorPrimary),
+                              color:
+                                  isDarkMode ? TColors.white : TColors.primary),
                         )
                       ],
                     )
