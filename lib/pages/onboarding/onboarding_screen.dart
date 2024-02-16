@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone/const/const.dart';
 import 'package:whatsapp_clone/pages/onboarding/onboarding_controller.dart';
+import 'package:whatsapp_clone/routes/app_routes.dart';
 import 'package:whatsapp_clone/utils/constants/text_strings.dart';
 import 'package:whatsapp_clone/utils/theme/text_style.dart';
 import 'package:whatsapp_clone/utils/constants/colors.dart';
@@ -243,9 +244,7 @@ class OnboardingScreen extends StatelessWidget {
                 opacity: onBoardingController.isClicked.value ? 1.0 : 0.0,
                 duration: const Duration(milliseconds: 500),
                 child: GestureDetector(
-                  onTap: () {
-                    onBoardingController.isClicked.value = true;
-                  },
+                  onTap: () => Get.toNamed(AppRoutes.phoneNumberScreen),
                   child: Container(
                     alignment: Alignment.bottomRight,
                     padding:
@@ -256,16 +255,6 @@ class OnboardingScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: TColors.pineGreen,
                         borderRadius: BorderRadius.circular(14.r),
-                        boxShadow: [
-                          isDarkMode
-                              ? const BoxShadow()
-                              : const BoxShadow(
-                                  color: TColors.lightGray,
-                                  blurRadius: 4,
-                                  blurStyle: BlurStyle.normal,
-                                  offset: Offset(0, 4),
-                                ),
-                        ],
                       ),
                       child: Text(
                         'Agree and continue',

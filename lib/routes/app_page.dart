@@ -1,4 +1,6 @@
 import 'package:get/route_manager.dart';
+import 'package:whatsapp_clone/pages/country_code/country_code_binding.dart';
+import 'package:whatsapp_clone/pages/country_code/country_code_screen.dart';
 import 'package:whatsapp_clone/pages/home/home_binding.dart';
 import 'package:whatsapp_clone/pages/home/home_screen.dart';
 import 'package:whatsapp_clone/pages/onboarding/onboarding_binding.dart';
@@ -7,6 +9,8 @@ import 'package:whatsapp_clone/pages/phone_number/phone_number_binding.dart';
 import 'package:whatsapp_clone/pages/phone_number/phone_number_screen.dart';
 import 'package:whatsapp_clone/pages/splash/splash_binding.dart';
 import 'package:whatsapp_clone/pages/splash/splash_screen.dart';
+import 'package:whatsapp_clone/pages/verify_number/verify_number_binding.dart';
+import 'package:whatsapp_clone/pages/verify_number/verify_number_screen.dart';
 import 'package:whatsapp_clone/routes/app_routes.dart';
 
 class AppPages {
@@ -28,8 +32,19 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.phoneNumberScreen,
-      page: () => PhoneNumberScreen(),
+      page: () => const PhoneNumberScreen(),
       binding: PhoneNumberScreenBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.countryCodeScreen,
+      page: () => const CountryCodeScreen(),
+      binding: CountryCodeScreenBinding(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: AppRoutes.verifyNumberScreen,
+      page: () => const VerifyNumberScreen(),
+      binding: VerifyNumberScreenBindings(),
     ),
   ];
 }
