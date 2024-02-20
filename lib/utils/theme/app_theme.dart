@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/utils/constants/colors.dart';
 import 'package:whatsapp_clone/utils/theme/custom_themes/appbar_theme.dart';
+import 'package:whatsapp_clone/utils/theme/custom_themes/tabbar_theme.dart';
 import 'package:whatsapp_clone/utils/theme/custom_themes/text_theme.dart';
 
 class TAppTeme {
@@ -18,6 +19,7 @@ class TAppTeme {
       selectionColor: TColors.primary.withOpacity(0.3),
       selectionHandleColor: TColors.primary,
     ),
+    tabBarTheme: TTabBarTheme.lightTabBarTheme,
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -32,5 +34,6 @@ class TAppTeme {
       selectionColor: TColors.primary.withOpacity(0.3),
       selectionHandleColor: TColors.primary,
     ),
+    tabBarTheme: TTabBarTheme.darkTabBarTheme,
   );
 }

@@ -3,21 +3,23 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:whatsapp_clone/utils/constants/colors.dart';
 import 'package:whatsapp_clone/utils/theme/text_style.dart';
 
-class CustomAppBar extends StatelessWidget {
+class CustomAppBar extends StatelessWidget implements PreferredSize{
   const CustomAppBar({
     super.key,
-    required this.headingText,
+    required this.title,
     required this.getBack,
+    this.profilePics,
   });
-  final String headingText;
+  final String title;
   final VoidCallback getBack;
+  final String? profilePics;
 
   @override
   Widget build(BuildContext context) {
     var brightness = MediaQuery.of(context).platformBrightness;
     bool isDarkMode = brightness == Brightness.dark;
     return Container(
-      height: 50.h,
+      height: 60.h,
       decoration: BoxDecoration(
         color: isDarkMode ? Color(0xff1F2C34) : TColors.white,
       ),
@@ -26,25 +28,34 @@ class CustomAppBar extends StatelessWidget {
           Expanded(
             child: Row(
               children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 6.w),
-                  child: InkWell(
-                    onTap: getBack,
-                    child: Container(
-                      width: 44.h,
-                      height: 44.h,
-                      child: Center(
-                          child: Icon(
-                        Icons.arrow_back,
-                        size: 18.h,
-                      )),
-                    ),
+                InkWell(
+                  onTap: getBack,
+                  child: Container(
+                    // color: Colors.red,
+                    width: 36.h,
+                    height: 44.h,
+                    child: Center(
+                        child: Icon(
+                      Icons.arrow_back,
+                      size: 18.h,
+                    )),
                   ),
                 ),
+                Container(
+                  // color: Colors.amber,
+                  child: profilePics == null
+                      ? SizedBox.shrink()
+                      : CircleAvatar(
+                          radius: 18.r,
+                          backgroundImage: AssetImage(profilePics!),
+                        ),
+                ),
+                SizedBox(width: 12.w),
                 Text(
-                  headingText,
+                  title,
                   style: kTextStyleHelveticaRegular.copyWith(
                     fontSize: 16.sp,
+                    fontWeight: FontWeight.w500,
                   ),
                 )
               ],
@@ -54,4 +65,14 @@ class CustomAppBar extends StatelessWidget {
       ),
     );
   }
+  
+  @override
+  // TODO: implement child
+  Widget get child => throw UnimplementedError();
+  
+  @override
+  // TODO: implement preferredSize
+  Size get preferredSize => throw UnimplementedError();
+
+
 }

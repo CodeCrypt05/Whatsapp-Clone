@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:whatsapp_clone/const/const.dart';
 import 'package:whatsapp_clone/pages/onboarding/onboarding_controller.dart';
 import 'package:whatsapp_clone/routes/app_routes.dart';
+import 'package:whatsapp_clone/utils/constants/image_strings.dart';
 import 'package:whatsapp_clone/utils/constants/text_strings.dart';
 import 'package:whatsapp_clone/utils/theme/text_style.dart';
 import 'package:whatsapp_clone/utils/constants/colors.dart';
@@ -35,7 +35,7 @@ class OnboardingScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       SvgPicture.asset(
-                        Const.welcomeLogo,
+                        TImages.welcomeLogo,
                         fit: BoxFit.cover,
                         height: 280.h,
                       ),

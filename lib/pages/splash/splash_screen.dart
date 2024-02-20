@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:whatsapp_clone/const/const.dart';
 import 'package:whatsapp_clone/utils/constants/colors.dart';
+import 'package:whatsapp_clone/utils/constants/image_strings.dart';
 
 import 'package:whatsapp_clone/utils/theme/text_style.dart';
 
@@ -26,7 +26,7 @@ class SplashScreen extends StatelessWidget {
               width: double.infinity,
               alignment: Alignment.center,
               child: SvgPicture.asset(
-                Const.whatsappLogo,
+                TImages.whatsappLogo,
                 fit: BoxFit.cover,
                 height: 76.h,
                 color: isDarkMode ? TColors.white : TColors.primary,
@@ -49,7 +49,7 @@ class SplashScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SvgPicture.asset(Const.metaLogo,
+                        SvgPicture.asset(TImages.metaLogo,
                             fit: BoxFit.cover,
                             height: 16.h,
                             color:

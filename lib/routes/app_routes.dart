@@ -4,5 +4,10 @@ class AppRoutes {
   static const onboardingScreen = '/onboardingScreen';
   static const phoneNumberScreen = '/phoneNumberScreen';
   static const countryCodeScreen = '/countryCodeScreen';
-   static const verifyNumberScreen = '/verifyNumberScreen';
+  static const verifyNumberScreen = '/verifyNumberScreen';
+  static const chatScreen = '/chatScreen';
+  static const selectContactScreen = '/selectContactScreen';
+
+  // -- tab routes
+  static const feedScreen = '/feedScreen';
 }

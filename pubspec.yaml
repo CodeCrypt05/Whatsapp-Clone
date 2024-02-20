@@ -38,7 +38,9 @@ flutter:
   assets:
     - assets/images/splash/
     - assets/images/country_flags/
-
+    - assets/images/icons/
+    - assets/images/profile_pics/
+    - assets/images/background/
 
   # Fonts
   fonts:
