@@ -7,6 +7,7 @@ class AppRoutes {
   static const verifyNumberScreen = '/verifyNumberScreen';
   static const chatScreen = '/chatScreen';
   static const selectContactScreen = '/selectContactScreen';
+  static const profileScreen = '/profileScreen';
 
   // -- tab routes
   static const feedScreen = '/feedScreen';

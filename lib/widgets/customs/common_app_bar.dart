@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:whatsapp_clone/routes/app_routes.dart';
 import 'package:whatsapp_clone/utils/constants/colors.dart';
 import 'package:whatsapp_clone/utils/theme/text_style.dart';
 
@@ -10,12 +12,14 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
     required this.getBack,
     this.profilePics,
     required this.icons,
+    this.onClick,
   });
 
   final String title;
   final VoidCallback getBack;
   final String? profilePics;
   final List<IconData> icons;
+  final VoidCallback? onClick;
 
   @override
   Widget build(BuildContext context) {
@@ -50,25 +54,32 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
                           )),
                         ),
                       ),
-                      Container(
-                        // color: Colors.amber,
-                        child: profilePics == null
-                            ? SizedBox.shrink()
-                            : Image.asset(
-                                profilePics!,
-                                fit: BoxFit.cover,
-                                height: 90.h,
+                      GestureDetector(
+                        onTap: onClick,
+                        child: Row(
+                          children: [
+                            Container(
+                              // color: Colors.amber,
+                              child: profilePics == null
+                                  ? SizedBox.shrink()
+                                  : Image.asset(
+                                      profilePics!,
+                                      fit: BoxFit.cover,
+                                      height: 90.h,
+                                    ),
+                            ),
+                            SizedBox(width: 12.w),
+                            Text(
+                              title,
+                              style: kTextStyleHelveticaRegular.copyWith(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w500,
+                                color: TColors.white,
                               ),
-                      ),
-                      SizedBox(width: 12.w),
-                      Text(
-                        title,
-                        style: kTextStyleHelveticaRegular.copyWith(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w500,
-                          color: TColors.white,
+                            )
+                          ],
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),

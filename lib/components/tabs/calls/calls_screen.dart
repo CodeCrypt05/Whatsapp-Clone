@@ -73,7 +73,7 @@ class CallScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                      Get.toNamed(AppRoutes.chatScreen, arguments: index);
+                      // Get.toNamed(AppRoutes.chatScreen, arguments: index);
                     },
                     child: Container(
                       color: Colors.transparent,

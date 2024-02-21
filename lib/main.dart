@@ -31,9 +31,9 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => GetMaterialApp(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.onboardingScreen,
+        initialRoute: AppRoutes.splashScreen,
         getPages: AppPages.getPages,
-        initialBinding: OnboardingScreenBinding(),
+        initialBinding: SplashScreenBinding(),
         themeMode: ThemeMode.system,
         theme: TAppTeme.lightTheme,
         darkTheme: TAppTeme.darkTheme,

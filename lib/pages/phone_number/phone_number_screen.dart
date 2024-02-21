@@ -121,7 +121,7 @@ class PhoneNumberScreen extends StatelessWidget {
                   SizedBox(
                     width: 52.w,
                     child: CustomTextfieldWidget(
-                      initialValue: "+91",
+                      initialValue: "91",
                       textInputType: TextInputType.number,
                       inputFormatters: [LengthLimitingTextInputFormatter(3)],
                       textAlignVertical: TextAlignVertical.bottom,
