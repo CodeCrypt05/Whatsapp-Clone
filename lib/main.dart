@@ -6,6 +6,8 @@ import 'package:whatsapp_clone/pages/home/home_binding.dart';
 import 'package:whatsapp_clone/pages/home/home_screen.dart';
 import 'package:whatsapp_clone/pages/onboarding/onboarding_binding.dart';
 import 'package:whatsapp_clone/pages/phone_number/phone_number_binding.dart';
+import 'package:whatsapp_clone/pages/practice_file/sample_binding.dart';
+import 'package:whatsapp_clone/pages/profile/profile_binding.dart';
 import 'package:whatsapp_clone/pages/splash/splash_binding.dart';
 import 'package:whatsapp_clone/routes/app_page.dart';
 import 'package:whatsapp_clone/routes/app_routes.dart';
@@ -31,9 +33,9 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => GetMaterialApp(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.splashScreen,
+        initialRoute: AppRoutes.homeScreen,
         getPages: AppPages.getPages,
-        initialBinding: SplashScreenBinding(),
+        initialBinding: HomeScreenBindings(),
         themeMode: ThemeMode.system,
         theme: TAppTeme.lightTheme,
         darkTheme: TAppTeme.darkTheme,

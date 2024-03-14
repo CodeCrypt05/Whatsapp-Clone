@@ -12,7 +12,7 @@ class FeedScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.only(top: 12.h, bottom: 12.h),
+        padding: EdgeInsets.only(top: 8.h),
         child: ListView.builder(
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
@@ -26,7 +26,7 @@ class FeedScreen extends StatelessWidget {
               },
               child: Container(
                 color: Colors.transparent,
-                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
+                padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 12.h),
                 child: FeedTile(
                   profilePic: feedData[index].profilePic,
                   name: feedData[index].name,

@@ -31,6 +31,7 @@ class ChatScreen extends StatelessWidget {
     final index = Get.arguments;
     final profilePic = feedData[index].profilePic;
     final name = feedData[index].name;
+    print("get index : ${index}");
 
     return Scaffold(
       backgroundColor: isDarkMode ? Color(0xff0A1B23) : Color(0xffE5DDD5),
@@ -52,12 +53,6 @@ class ChatScreen extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    // Display Messages
-
-                    // final numbers = <String>['two', 'three', 'four'];
-                    // final reverseOrder = numbers.reversed;
-                    // print(reverseOrder.toList()); // [four, three, two]
-
                     Expanded(
                       child: ListView.builder(
                         reverse: true,

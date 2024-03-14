@@ -9,6 +9,8 @@ class AppRoutes {
   static const selectContactScreen = '/selectContactScreen';
   static const profileScreen = '/profileScreen';
 
+  static const sampleScreen = '/sampleScreen';
+
   // -- tab routes
   static const feedScreen = '/feedScreen';
 }

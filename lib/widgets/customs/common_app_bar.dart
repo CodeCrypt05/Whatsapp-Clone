@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp_clone/routes/app_routes.dart';
@@ -25,6 +26,11 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     var brightness = MediaQuery.of(context).platformBrightness;
     bool isDarkMode = brightness == Brightness.dark;
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: isDarkMode
+          ? Color(0xff1F2C34)
+          : TColors.pineGreen, // Change this color to the desired color
+    ));
     return Container(
       color: isDarkMode ? Color(0xff1F2C34) : TColors.pineGreen,
       child: SafeArea(
