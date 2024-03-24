@@ -11,8 +11,6 @@ import 'package:whatsapp_clone/pages/onboarding/onboarding_binding.dart';
 import 'package:whatsapp_clone/pages/onboarding/onboarding_screen.dart';
 import 'package:whatsapp_clone/pages/phone_number/phone_number_binding.dart';
 import 'package:whatsapp_clone/pages/phone_number/phone_number_screen.dart';
-import 'package:whatsapp_clone/pages/practice_file/sample.dart';
-import 'package:whatsapp_clone/pages/practice_file/sample_binding.dart';
 import 'package:whatsapp_clone/pages/profile/profile_binding.dart';
 import 'package:whatsapp_clone/pages/profile/profile_screen.dart';
 import 'package:whatsapp_clone/pages/select_contact/select_contact_binding.dart';
@@ -63,7 +61,7 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.selectContactScreen,
-      page: () => const SelectContactScreen(),
+      page: () => SelectContactScreen(),
       binding: SelectContactBinding(),
     ),
     GetPage(
@@ -72,16 +70,10 @@ class AppPages {
       binding: ProfileScreenBinding(),
     ),
 
-    GetPage(
-      name: AppRoutes.sampleScreen,
-      page: () => const SampleScreen(),
-      binding: SampleBinding(),
-    ),
-
     // -- Tab routes
     GetPage(
       name: AppRoutes.feedScreen,
-      page: () => const FeedScreen(),
+      page: () => FeedScreen(),
       binding: FeedScreenBinding(),
     ),
   ];

@@ -16,29 +16,24 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // -- Date format
-    var now = DateTime.now();
-    var formattedTime = DateFormat('hh:mm a').format(now);
-
     // -- Calling controller
-    final chatScreenController = Get.find<ChatScreenController>();
+    final chatController = Get.find<ChatScreenController>();
 
     // -- Checking local device is Dark
     var brightness = MediaQuery.of(context).platformBrightness;
     bool isDarkMode = brightness == Brightness.dark;
 
-    // -- Getting data from navigator screen
-    final index = Get.arguments;
-    final profilePic = feedData[index].profilePic;
-    final name = feedData[index].name;
-    print("get index : ${index}");
+    //-- Getting data from navigator screen
+    // final index = Get.arguments;
+    // final profilePic = feedData[index].profilePic;
+    // final name = feedData[index].name;
 
     return Scaffold(
       backgroundColor: isDarkMode ? Color(0xff0A1B23) : Color(0xffE5DDD5),
       appBar: CommonAppBar(
-        title: name,
+        title: "Suraj",
         getBack: () => Get.back(),
-        profilePics: profilePic,
+        profilePics: TImages.profile1,
         icons: const [Icons.videocam, Icons.call],
         onClick: () {
           Get.toNamed(AppRoutes.profileScreen);
@@ -49,30 +44,42 @@ class ChatScreen extends StatelessWidget {
           children: [
             Obx(
               () => Form(
-                key: chatScreenController.messageForm,
+                key: chatController.messageForm,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
+                    // Display Messages
+
                     Expanded(
                       child: ListView.builder(
                         reverse: true,
-                        itemCount: chatScreenController.messageList.length,
+                        itemCount: chatController.messagesList.length,
                         itemBuilder: (context, index) {
                           final reversedIndex =
-                              chatScreenController.messageList.length -
-                                  1 -
-                                  index;
+                              chatController.messagesList.length - 1 - index;
+                          final messageMap =
+                              chatController.messagesList[reversedIndex];
+                          final message = messageMap['message'];
+                          final bool flag = messageMap['flag'];
+                          final currentDate = messageMap['time'];
+
                           return Container(
                             width: double.minPositive,
-                            alignment: Alignment.bottomRight,
+                            // this container shows entire messages
+                            alignment: flag
+                                ? Alignment.bottomRight
+                                : Alignment.bottomLeft,
                             margin: EdgeInsets.fromLTRB(14.w, 0.h, 14.h, 0.h),
                             // color: Colors.blue,
+
                             child: Container(
-                              //
+                              margin: EdgeInsets.only(bottom: 2.h, top: 2.h),
                               decoration: BoxDecoration(
                                   color: isDarkMode
-                                      ? TColors.pineGreen
-                                      : Color(0xffE7ffdb),
+                                      ? TColors.lightGray
+                                      : !flag
+                                          ? Colors.white
+                                          : Color(0xffE7ffdb),
                                   borderRadius: BorderRadius.circular(8.r)),
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
@@ -82,8 +89,7 @@ class ChatScreen extends StatelessWidget {
                                     // color: Colors.blueAccent,
                                     padding: EdgeInsets.all(8),
                                     child: Text(
-                                      chatScreenController
-                                          .messageList[reversedIndex],
+                                      message,
                                       style:
                                           kTextStyleHelveticaRegular.copyWith(
                                         fontSize: 14.sp,
@@ -99,7 +105,7 @@ class ChatScreen extends StatelessWidget {
                                     alignment: Alignment.bottomCenter,
                                     // color: Colors.redAccent,
                                     child: Text(
-                                      formattedTime,
+                                      currentDate,
                                       style:
                                           kTextStyleHelveticaRegular.copyWith(
                                               fontSize: 10.sp,
@@ -107,17 +113,19 @@ class ChatScreen extends StatelessWidget {
                                               color: Colors.grey.shade700),
                                     ),
                                   ),
-                                  Container(
-                                    padding: EdgeInsets.only(
-                                        right: 6.w, bottom: 6.h),
-                                    alignment: Alignment.bottomCenter,
-                                    // color: Colors.redAccent,
-                                    child: Icon(
-                                      Icons.check,
-                                      size: 14.h,
-                                      color: Colors.grey.shade700,
-                                    ),
-                                  ),
+                                  flag
+                                      ? Container(
+                                          padding: EdgeInsets.only(
+                                              right: 6.w, bottom: 6.h),
+                                          alignment: Alignment.bottomCenter,
+                                          // color: Colors.redAccent,
+                                          child: Icon(
+                                            Icons.check,
+                                            size: 14.h,
+                                            color: Colors.grey.shade700,
+                                          ),
+                                        )
+                                      : SizedBox.shrink(),
                                 ],
                               ),
                             ),
@@ -141,8 +149,7 @@ class ChatScreen extends StatelessWidget {
                             padding: EdgeInsets.only(top: 2.h),
                             child: TextFormField(
                               maxLines: null,
-                              controller:
-                                  chatScreenController.messageController,
+                              controller: chatController.messageController,
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 contentPadding: EdgeInsets.only(top: 8.h),
@@ -166,8 +173,8 @@ class ChatScreen extends StatelessWidget {
                                       height: 24.h,
                                     ),
                                     SizedBox(width: 14.w),
-                                    chatScreenController.isTextEntered.value
-                                        ? SizedBox.shrink()
+                                    chatController.isTextEntered.value
+                                        ? const SizedBox.shrink()
                                         : Row(
                                             children: [
                                               SvgPicture.asset(
@@ -200,11 +207,9 @@ class ChatScreen extends StatelessWidget {
                               cursorColor: TColors.primary,
                               onChanged: (value) {
                                 if (value.isNotEmpty) {
-                                  chatScreenController.isTextEntered.value =
-                                      true;
+                                  chatController.isTextEntered.value = true;
                                 } else {
-                                  chatScreenController.isTextEntered.value =
-                                      false;
+                                  chatController.isTextEntered.value = false;
                                 }
                               },
                             ),
@@ -214,7 +219,7 @@ class ChatScreen extends StatelessWidget {
                         Obx(
                           () => GestureDetector(
                             onTap: () {
-                              chatScreenController.sendMessage();
+                              chatController.sendMessage();
                             },
                             child: Container(
                               height: 42.h,
@@ -224,7 +229,7 @@ class ChatScreen extends StatelessWidget {
                                 color: TColors.primary,
                                 borderRadius: BorderRadius.circular(50.r),
                               ),
-                              child: chatScreenController.isTextEntered.value
+                              child: chatController.isTextEntered.value
                                   ? const Icon(
                                       Icons.send,
                                       color: TColors.white,

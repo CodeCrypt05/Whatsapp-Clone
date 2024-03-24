@@ -1,3 +1,3 @@
 import 'package:get/get.dart';
 
-class SelectContactScreenController extends GetxController{}
+class SelectContactScreenController extends GetxController {}

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/route_manager.dart';
+import 'package:whatsapp_clone/pages/contact_page/contacts_page.dart';
 import 'package:whatsapp_clone/pages/country_code/country_code_binding.dart';
 import 'package:whatsapp_clone/pages/home/home_binding.dart';
 import 'package:whatsapp_clone/pages/home/home_screen.dart';
 import 'package:whatsapp_clone/pages/onboarding/onboarding_binding.dart';
 import 'package:whatsapp_clone/pages/phone_number/phone_number_binding.dart';
-import 'package:whatsapp_clone/pages/practice_file/sample_binding.dart';
 import 'package:whatsapp_clone/pages/profile/profile_binding.dart';
 import 'package:whatsapp_clone/pages/splash/splash_binding.dart';
 import 'package:whatsapp_clone/routes/app_page.dart';
@@ -39,6 +39,7 @@ class MyApp extends StatelessWidget {
         themeMode: ThemeMode.system,
         theme: TAppTeme.lightTheme,
         darkTheme: TAppTeme.darkTheme,
+        // home: ContactsPage(),
       ),
     );
   }

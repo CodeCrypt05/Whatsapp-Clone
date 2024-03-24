@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
 
-class FeedScreenController extends GetxService{
-
+class FeedScreenController extends GetxController {
+  var isEmpty = true.obs;
 }

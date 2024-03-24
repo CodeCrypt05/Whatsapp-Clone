@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:whatsapp_clone/utils/theme/text_style.dart';
@@ -5,13 +7,13 @@ import 'package:whatsapp_clone/utils/theme/text_style.dart';
 class FeedTile extends StatelessWidget {
   const FeedTile({
     super.key,
-    required this.profilePic,
+    this.profilePic,
     required this.name,
     this.date,
     required this.status,
   });
 
-  final String profilePic;
+  final Uint8List? profilePic;
   final String name;
   final String status;
   final String? date;
@@ -22,7 +24,7 @@ class FeedTile extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 24.r,
-          backgroundImage: AssetImage(profilePic),
+          backgroundImage: MemoryImage(profilePic!),
         ),
         // Title
         Expanded(
